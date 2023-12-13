@@ -1,12 +1,21 @@
 import { CodeIcon } from "@heroicons/react/solid";
 import React from "react";
 import { projects } from "../data/Project";
-
-
+import Aos from "aos";
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 
 export default function Projects() {
+
+  useEffect(()=>{
+    Aos.init({
+      duration: 700,
+      easing: 'ease-out-cubic'
+    })
+  },[])
+
   return (
-    <section id="projects" className="text-gray-400 bg-gray-900 body-font">
+    <section id="projects" className="text-gray-400 bg-gray-900 body-font" data-Aos='fade-down'>
       <div className="container px-5 py-10 mx-auto text-center lg:px-40">
         <div className="flex flex-col w-full mb-20">
           <CodeIcon className="mx-auto inline-block w-10 mb-4" />
@@ -19,7 +28,7 @@ export default function Projects() {
             fuga dolore.
           </p>
         </div>
-        <div className="flex flex-wrap -m-4">
+        <div className="flex flex-wrap -m-4" data-Aos='zoom-in'>
           {projects.map((project) => (
             <a
               href={project.link}
